@@ -1,0 +1,15 @@
+# Dockerfile.dev 
+# The command docker build . looks for a file with the name Dockerfile.
+# We need to specify the file: docker build -f Dockerfile.dev .
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install 
+
+# We keep it, if we decide to do something different, even if it's not
+# necessary because of the use of volumes.
+COPY . .
+
+CMD ["npm", "run", "start"]
