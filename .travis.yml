@@ -1,0 +1,16 @@
+# We need superuser privileges
+sudo: required
+# We inform Travis what we need
+services:
+    - docker
+
+# A series of commands that we be executed before our tests are run or deploy our app.
+before_install:
+    # tag: gkaframanis/docker-react (you can use any tag you want, but this is a good convention)
+    - docker build -t gkaframanis/docker-react -f Dockerfile.dev . 
+
+# How to run our test suite
+script:
+    # The default behavior is npm run test is not to exit, but to show the menu of tests and wait an input that's why we add -- --coverage.
+    # Now it automatically exits, what the travis expects.
+    - docker run gkaframanis/docker-react npm run test -- --coverage
