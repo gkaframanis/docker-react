@@ -12,6 +12,6 @@ before_install:
 # How to run our test suite
 script:
     # The default behavior is npm run test is not to exit, but to show 
-    # the menu of tests and wait an input so we add -- --coverage.
+    # the menu of tests and wait an input so we add -e CI=true.
     # Now it automatically exits, what the travis expects.
-    - docker run gkaframanis/docker-react npm run test -- --coverage
+    - docker run -e CI=true gkaframanis/docker-react npm run test
