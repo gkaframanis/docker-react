@@ -17,6 +17,7 @@ script:
     - docker run -e CI=true gkaframanis/docker-react npm run test
 
 deploy:
+    skip_cleanup: true
     provider: elasticbeanstalk
     # API keys. Services --> type iam --> users --> add user --> docker-react-travis-ci (access type: programmatic access) --> Next permission --> Attach existing policies directly (search beanstalk, select AWSElasticBeanstalkFullAccess)
     
