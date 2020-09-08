@@ -34,6 +34,6 @@ deploy:
     # API keys. Services --> type iam --> users --> add user --> docker-react-travis-ci (access type: programmatic access) --> Next permission --> Attach existing policies directly (search beanstalk, select AWSElasticBeanstalkFullAccess)
     
     # Local environmental variables to travis-ci.org for this project.
-    access_key_id: $AWS_ACCESS_KEY
+    access_key_id: "$AWS_ACCESS_KEY"
     secret_access_key:
-        secure: $AWS_SECRET_KEY
+        secure: "$AWS_SECRET_KEY"
