@@ -22,8 +22,7 @@ deploy:
     
     # Local environmental variables to travis-ci.org for this project.
     access_key_id: $AWS_ACCESS_KEY
-    secret_access_key:
-        secure: $AWS_SECRET_KEY
+    secret_access_key: $AWS_SECRET_KEY
     # Depends on where you originally created your elastic beanstalk instance. (check the url that AWS gives you before the elasticbeanstalk.com)
     region: us-east-2
     app: "docker-react"
