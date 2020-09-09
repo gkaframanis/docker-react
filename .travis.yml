@@ -33,7 +33,6 @@ deploy:
         
         # Services --> type S3
         bucket_name: "elasticbeanstalk-us-east-2-651673642226"
-        bucket_path: "docker-react"
         # We don't want to deploy our app of we push code to a feature branch on github which is for active development. Only when we push code on master branch.
         on:
             branch: master
