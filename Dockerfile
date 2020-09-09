@@ -1,9 +1,9 @@
-FROM node:alpine as builder 
+FROM node:alpine 
 WORKDIR '/app'
 COPY package.json .
 RUN npm install 
 COPY . .
-RUN npm run build
+RUN npm run node:alpine
 
 # /app/build <--- The folder with all the stuff that we care about
 FROM nginx
@@ -11,5 +11,5 @@ FROM nginx
 # This instruction does nothing automatically. Elasticbeanstalk will look at that and use that port for incoming traffic.
 EXPOSE 80
 # copy something from a different phase 
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=node:alpine /app/build /usr/share/nginx/html
 # The default command of nginx container will start nginx for us.
