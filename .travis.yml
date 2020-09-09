@@ -23,19 +23,19 @@ deploy:
     # Local environmental variables to travis-ci.org for this project.
     access_key_id: 
         secure: $AWS_ACCESS_KEY
-        secret_access_key:
-            secure: $AWS_SECRET_KEY
-            # Depends on where you originally created your elastic beanstalk instance. (check the url that AWS gives you before the elasticbeanstalk.com)
-            region: us-east-2
-            app: "docker-react"
-            env: "DockerReact-environment"
-            # When Travis decides to deploy your codebase is gonna take all the files inside of the github repository, is gonna zip them all up in one single file and it's gonna copy all them over to an S3 bucket, which is essentially a hard drive running on AWS.
-            
-            # Services --> type S3
-            bucket_name: "elasticbeanstalk-us-east-2-651673642226"
-            bucket_path: "docker-react"
-            # We don't want to deploy our app of we push code to a feature branch on github which is for active development. Only when we push code on master branch.
-            on:
-                branch: master
-            
-            skip_cleanup: true
+    secret_access_key:
+        secure: $AWS_SECRET_KEY
+        # Depends on where you originally created your elastic beanstalk instance. (check the url that AWS gives you before the elasticbeanstalk.com)
+        region: us-east-2
+        app: "docker-react"
+        env: "DockerReact-environment"
+        # When Travis decides to deploy your codebase is gonna take all the files inside of the github repository, is gonna zip them all up in one single file and it's gonna copy all them over to an S3 bucket, which is essentially a hard drive running on AWS.
+        
+        # Services --> type S3
+        bucket_name: "elasticbeanstalk-us-east-2-651673642226"
+        bucket_path: "docker-react"
+        # We don't want to deploy our app of we push code to a feature branch on github which is for active development. Only when we push code on master branch.
+        on:
+            branch: master
+        
+        skip_cleanup: true
