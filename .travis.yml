@@ -36,5 +36,3 @@ deploy:
         # We don't want to deploy our app of we push code to a feature branch on github which is for active development. Only when we push code on master branch.
         on:
             branch: master
-        
-        skip_cleanup: true
